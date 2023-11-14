@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TasksProducerConsoleApp", "TasksProducerConsoleApp\TasksProducerConsoleApp.csproj", "{B4F0CD8E-9052-4AB5-9E44-8AF1E7D8E9EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TasksCore", "TasksCore\TasksCore.csproj", "{905082B0-DC8C-4816-AF6C-18345A37108F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TasksConsumerConsoleApp", "TasksConsumerConsoleApp\TasksConsumerConsoleApp.csproj", "{FFA7E7C8-04F9-492A-B721-78A40B358247}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B4F0CD8E-9052-4AB5-9E44-8AF1E7D8E9EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4F0CD8E-9052-4AB5-9E44-8AF1E7D8E9EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4F0CD8E-9052-4AB5-9E44-8AF1E7D8E9EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4F0CD8E-9052-4AB5-9E44-8AF1E7D8E9EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{905082B0-DC8C-4816-AF6C-18345A37108F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{905082B0-DC8C-4816-AF6C-18345A37108F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{905082B0-DC8C-4816-AF6C-18345A37108F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{905082B0-DC8C-4816-AF6C-18345A37108F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFA7E7C8-04F9-492A-B721-78A40B358247}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFA7E7C8-04F9-492A-B721-78A40B358247}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFA7E7C8-04F9-492A-B721-78A40B358247}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFA7E7C8-04F9-492A-B721-78A40B358247}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

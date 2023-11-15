@@ -6,12 +6,12 @@ public class ExampleTask
     public TaskStatus? Status { get; set; }
     public string? Desc { get; set; }
 
-    public static readonly string Topic = "kafka-tests.tasks";
-    public static readonly string TopikTable = "kafka-tests.tasks-table";
-    public static readonly string Table = "kafka-tests.table-tasks";
+    public static readonly string TopicIn = "kafka-tests.tasks-in";
+    public static readonly string TopicOut = "kafka-tests.tasks-out";
+    public static readonly string Table = "kafka-tests.tasks-store";
 }
 
-public enum TasksCore
+public enum TaskStatus
 {
     New = 0,
     InProgress = 1,

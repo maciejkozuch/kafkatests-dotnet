@@ -1,6 +1,4 @@
-﻿using System.Text.Json;
-using Confluent.Kafka;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using TasksCore;
 
@@ -16,13 +14,13 @@ using var kafkaConsumerService = serviceProvider.GetService<KafkaConsumerService
 
 logger?.LogInformation("Starting the tasks consumer!");
 
-await kafkaManageService?.CreateTopicIfDoesntExists(ExampleTask.TopikTable)!;
+await kafkaManageService?.CreateTopicIfDoesntExists(ExampleTask.TopicOut)!;
 
 var cancellationTokenSrc = new CancellationTokenSource();
 
 Task.Run(() =>
 {
-    kafkaConsumerService.StartReceiving<ExampleTask>(ExampleTask.TopikTable, (key, value) =>
+    kafkaConsumerService.StartReceiving<ExampleTask>(ExampleTask.TopicOut, (key, value) =>
     {
         logger?.LogInformation("Received: '{desc}' with status '{status}'.", value.Desc, value.Status);
         Thread.Sleep(2000);

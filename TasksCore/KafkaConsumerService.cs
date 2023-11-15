@@ -26,7 +26,7 @@ public class KafkaConsumerService : IDisposable
         }).Build();
     }
 
-    public async void StartReceiving<TValue>(string topicName, Action<string, TValue> action, CancellationToken cancellationToken)
+    public void StartReceiving<TValue>(string topicName, Action<string, TValue> action, CancellationToken cancellationToken)
     {
         _logger.LogTrace("Starting receiving {type} messages ...", typeof(TValue));
         try

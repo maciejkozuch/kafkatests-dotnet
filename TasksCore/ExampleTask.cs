@@ -7,6 +7,8 @@ public class ExampleTask
     public string? Desc { get; set; }
 
     public static readonly string Topic = "kafka-tests.tasks";
+    public static readonly string TopikTable = "kafka-tests.tasks-table";
+    public static readonly string Table = "kafka-tests.table-tasks";
 }
 
 public enum TasksCore

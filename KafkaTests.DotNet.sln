@@ -4,7 +4,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TasksProducerConsoleApp", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TasksCore", "TasksCore\TasksCore.csproj", "{905082B0-DC8C-4816-AF6C-18345A37108F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TasksConsumerConsoleApp", "TasksConsumerConsoleApp\TasksConsumerConsoleApp.csproj", "{FFA7E7C8-04F9-492A-B721-78A40B358247}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TasksConsumerWithKTableConsoleApp", "TasksConsumerWithKTableConsoleApp\TasksConsumerWithKTableConsoleApp.csproj", "{FFA7E7C8-04F9-492A-B721-78A40B358247}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

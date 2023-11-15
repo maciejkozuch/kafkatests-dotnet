@@ -12,13 +12,13 @@ var services = new ServiceCollection();
 services.AddLogging(builder => builder.AddConsole().SetMinimumLevel(LogLevel.Trace));
 services.AddSingleton<KafkaManageService>();
 services.AddSingleton<KafkaConsumerService>();
-IServiceProvider serviceProvider = services.BuildServiceProvider();
-ILogger<Program> logger = serviceProvider.GetService<ILogger<Program>>();
+var serviceProvider = services.BuildServiceProvider();
+var logger = serviceProvider.GetService<ILogger<Program>>();
 
 using var kafkaManageService = serviceProvider.GetService<KafkaManageService>();
 using var kafkaConsumerService = serviceProvider.GetService<KafkaConsumerService>();
 
-logger?.LogInformation("Starting the tasks consumer!");
+logger?.LogInformation("Starting the tasks consumer with KTable stream!");
 
 await kafkaManageService?.CreateTopicIfDoesntExists(ExampleTask.Topic)!;
 await kafkaManageService?.CreateTopicIfDoesntExists(ExampleTask.TopikTable)!;
@@ -66,4 +66,4 @@ Console.ReadLine();
 streams.Dispose();
 cancellationTokenSrc.Cancel();
 
-logger?.LogInformation("Stopping the tasks consumer!");
+logger?.LogInformation("Stopping the tasks consumer with KTable stream!");

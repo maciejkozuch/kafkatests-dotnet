@@ -39,13 +39,15 @@ var streamConfig = new StreamConfig<StringSerDes, StringSerDes>
 
 var streamBuilder = new StreamBuilder();
 var stream = streamBuilder.Stream(ExampleTask.TopicIn, stringSerDes, stringSerDes);
+/*
 stream.Filter((key, value) =>
 {
     var task = JsonSerializer.Deserialize<ExampleTask>(value);
     return task?.Status == TaskStatus.New;
 }).To(ExampleTask.TopicOut, stringSerDes, stringSerDes);
-var table = stream.ToTable(InMemory.As<string, string>(ExampleTask.Table)).ToStream();
-//table.ToStream().To(ExampleTask.TopicOut, stringSerDes, stringSerDes);
+*/
+var table = stream.ToTable(InMemory.As<string, string>(ExampleTask.Table));
+table.ToStream().To(ExampleTask.TopicOut, stringSerDes, stringSerDes);
 
 var topology = streamBuilder.Build();
 var streams = new KafkaStream(topology, streamConfig);
@@ -71,15 +73,17 @@ Task.Run(() =>
 {
     kafkaConsumerService.StartReceiving<ExampleTask>(ExampleTask.TopicOut, (key, value) =>
     {
+        logger?.LogTrace("Received: '{desc}' with status '{status}'.", value.Desc, value.Status);
+        
         var storeValueJson = store.Get(value.Id);
         var storeValue = JsonSerializer.Deserialize<ExampleTask>(storeValueJson);
         if (storeValue?.Status == TaskStatus.New)
         {
-            logger?.LogInformation("Received: '{desc}' with status '{status}'.", value.Desc, storeValue.Status);
+            logger?.LogInformation("To execute: '{desc}' with status '{status}'.", value.Desc, storeValue.Status);
         }
         else
         {
-            logger?.LogWarning("Received: '{desc}' with status '{status}'.", value.Desc, storeValue?.Status);
+            logger?.LogWarning("Rejected: '{desc}' with status '{status}'.", value.Desc, storeValue?.Status);
         }
         Thread.Sleep(2000);
     }, cancellationTokenSrc.Token);
